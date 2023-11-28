@@ -1,0 +1,22 @@
+public class CheckersGame {
+    public static void main(String[] args) {
+        Board board = new Board();
+        Player humanPlayer = new HumanPlayer();
+        Player computerPlayer = new ComputerPlayer();
+
+        while (!board.isGameOver()) {
+            board.displayBoard();
+            humanPlayer.makeMove(board);
+            if (board.isGameOver()) {
+                System.out.println("Гра закінчена. " + board.getWinner() + " виграв!");
+                break;
+            }
+
+            board.displayBoard();
+            computerPlayer.makeMove(board);
+            if (board.isGameOver()) {
+                System.out.println("Гра закінчена. " + board.getWinner() + " виграв!");
+            }
+        }
+    }
+}
